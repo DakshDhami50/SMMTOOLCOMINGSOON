@@ -72,14 +72,14 @@ export default function Hero() {
               </div>
             </FadeContent>
 
-            <FadeContent delay={400}>
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-8 leading-tight">
-                <span className="slide-in-up block">The Future of</span>
-                <span className="gradient-text block mt-2 slide-in-up stagger-1 shimmer">
-                  Social Media Management
-                </span>
-              </h1>
-            </FadeContent>
+                <FadeContent delay={400}>
+                  <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-8 leading-tight">
+                    <span className="slide-in-up block">The Future of</span>
+                    <span className="text-white block mt-2 slide-in-up stagger-1">
+                      Social Media Management
+                    </span>
+                  </h1>
+                </FadeContent>
 
             <FadeContent delay={600}>
               <p className="text-xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
@@ -88,22 +88,22 @@ export default function Hero() {
               </p>
             </FadeContent>
             
-            <FadeContent delay={800}>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-                <button
-                  onClick={toggleWaitlist}
-                  className="btn-modern glow-hover px-10 py-4 text-lg font-semibold flex items-center gap-3 group hover-lift bounce"
-                >
-                  <Sparkles className="w-5 h-5 group-hover:rotate-12 smooth-transition" />
-                  Join Waitlist
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 smooth-transition" />
-                </button>
-                <button className="glass border border-white/20 text-white px-10 py-4 rounded-xl text-lg font-semibold hover:bg-white/10 smooth-transition flex items-center gap-3 group hover-scale">
-                  <Zap className="w-5 h-5 group-hover:scale-110 smooth-transition" />
-                  Learn More
-                </button>
-              </div>
-            </FadeContent>
+                <FadeContent delay={800}>
+                  <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+                    <button
+                      onClick={toggleWaitlist}
+                      className="btn-modern px-10 py-4 text-lg font-semibold flex items-center gap-3 group hover-lift"
+                    >
+                      <Sparkles className="w-5 h-5 group-hover:rotate-12 smooth-transition" />
+                      Join Waitlist
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 smooth-transition" />
+                    </button>
+                    <button className="glass border border-white/20 text-white px-10 py-4 rounded-xl text-lg font-semibold hover:bg-white/10 smooth-transition flex items-center gap-3 group hover-scale">
+                      <Zap className="w-5 h-5 group-hover:scale-110 smooth-transition" />
+                      Learn More
+                    </button>
+                  </div>
+                </FadeContent>
 
             <FadeContent delay={1000}>
               <div className="mt-16">
@@ -118,10 +118,10 @@ export default function Hero() {
       {/* Waitlist Modal */}
       {isWaitlistOpen && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <FadeContent className="glass-dark rounded-2xl max-w-md w-full p-8 border border-white/20 glow">
+          <FadeContent className="glass-dark rounded-2xl max-w-md w-full p-8 border border-white/20">
             <div className="text-center mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 glow">
-                <Sparkles className="w-8 h-8 text-white" />
+              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Sparkles className="w-8 h-8 text-black" />
               </div>
               <h2 className="text-3xl font-bold text-white mb-2">Join Our Waitlist</h2>
               <p className="text-gray-300">

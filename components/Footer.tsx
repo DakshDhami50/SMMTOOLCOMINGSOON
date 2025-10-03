@@ -16,10 +16,10 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-2">
             <FadeContent delay={200}>
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center glow">
+                <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center">
                   <Sparkles className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-3xl font-bold gradient-text">Zenithly</h3>
+                <h3 className="text-3xl font-bold text-white">Zenithly</h3>
               </div>
             </FadeContent>
 
@@ -31,16 +31,16 @@ export default function Footer() {
 
             <FadeContent delay={600}>
               <div className="flex space-x-6">
-                <a href="#" className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center hover:bg-indigo-500/20 transition-all duration-300 group">
+                <a href="#" className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center hover:bg-white/20 transition-all duration-300 group">
                   <Twitter className="w-5 h-5 text-gray-400 group-hover:text-white" />
                 </a>
-                <a href="#" className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center hover:bg-indigo-500/20 transition-all duration-300 group">
+                <a href="#" className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center hover:bg-white/20 transition-all duration-300 group">
                   <Linkedin className="w-5 h-5 text-gray-400 group-hover:text-white" />
                 </a>
-                <a href="#" className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center hover:bg-indigo-500/20 transition-all duration-300 group">
+                <a href="#" className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center hover:bg-white/20 transition-all duration-300 group">
                   <Github className="w-5 h-5 text-gray-400 group-hover:text-white" />
                 </a>
-                <a href="#" className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center hover:bg-indigo-500/20 transition-all duration-300 group">
+                <a href="#" className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center hover:bg-white/20 transition-all duration-300 group">
                   <Mail className="w-5 h-5 text-gray-400 group-hover:text-white" />
                 </a>
               </div>

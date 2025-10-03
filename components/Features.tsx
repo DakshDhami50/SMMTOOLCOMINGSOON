@@ -86,12 +86,12 @@ export default function Features() {
             </div>
           </FadeContent>
 
-          <FadeContent delay={400}>
-            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-              Everything You Need to
-              <span className="gradient-text block mt-2">Succeed</span>
-            </h2>
-          </FadeContent>
+              <FadeContent delay={400}>
+                <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+                  Everything You Need to
+                  <span className="text-white block mt-2">Succeed</span>
+                </h2>
+              </FadeContent>
 
           <FadeContent delay={600}>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
@@ -105,12 +105,12 @@ export default function Features() {
             <FadeContent key={index} delay={200 + (index * 100)}>
               <div className="glass-dark rounded-2xl p-8 border border-white/10 hover:border-white/20 smooth-transition group hover-lift">
                 <div className="flex flex-col items-center text-center">
-                  <div className={`w-16 h-16 ${feature.bgColor} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 smooth-transition`}>
-                    <feature.icon size={32} className={`${feature.iconColor} group-hover:rotate-12 smooth-transition`} />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:gradient-text smooth-transition">
-                    {feature.title}
-                  </h3>
+                      <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 smooth-transition">
+                        <feature.icon size={32} className="text-white group-hover:rotate-12 smooth-transition" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-gray-300 smooth-transition">
+                        {feature.title}
+                      </h3>
                   <p className="text-gray-300 leading-relaxed group-hover:text-white smooth-transition">
                     {feature.description}
                   </p>
@@ -121,24 +121,24 @@ export default function Features() {
         </div>
 
         {/* Call to action */}
-        <FadeContent delay={1000} className="text-center mt-20">
-          <div className="glass-dark rounded-2xl p-12 border border-white/10 glow hover-lift scale-in">
-            <div className="flex items-center justify-center mb-6">
-              <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center glow-animation">
-                <Sparkles className="w-10 h-10 text-white bounce" />
+            <FadeContent delay={1000} className="text-center mt-20">
+              <div className="glass-dark rounded-2xl p-12 border border-white/10 hover-lift scale-in">
+                <div className="flex items-center justify-center mb-6">
+                  <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center">
+                    <Sparkles className="w-10 h-10 text-black" />
+                  </div>
+                </div>
+                <h3 className="text-3xl font-bold text-white mb-4 slide-in-up">
+                  Ready to Transform Your Social Media?
+                </h3>
+                <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto slide-in-up stagger-1">
+                  Join thousands of businesses already on our waitlist and be the first to experience the future of social media management.
+                </p>
+                <button className="btn-modern px-10 py-4 text-lg font-semibold hover-lift">
+                  Join Waitlist Now
+                </button>
               </div>
-            </div>
-            <h3 className="text-3xl font-bold text-white mb-4 slide-in-up">
-              Ready to Transform Your Social Media?
-            </h3>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto slide-in-up stagger-1">
-              Join thousands of businesses already on our waitlist and be the first to experience the future of social media management.
-            </p>
-            <button className="btn-modern glow-hover px-10 py-4 text-lg font-semibold hover-lift bounce">
-              Join Waitlist Now
-            </button>
-          </div>
-        </FadeContent>
+            </FadeContent>
       </div>
     </section>
   )

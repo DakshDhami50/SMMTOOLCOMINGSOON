@@ -105,12 +105,12 @@ export default function Pricing() {
               </div>
             </FadeContent>
 
-            <FadeContent delay={400}>
-              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-                Simple, Transparent
-                <span className="gradient-text block mt-2">Pricing</span>
-              </h2>
-            </FadeContent>
+                <FadeContent delay={400}>
+                  <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+                    Simple, Transparent
+                    <span className="text-white block mt-2">Pricing</span>
+                  </h2>
+                </FadeContent>
 
             <FadeContent delay={600}>
               <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
@@ -138,12 +138,12 @@ export default function Pricing() {
                   )}
 
                   <div className="text-center mb-8">
-                    <div className={`w-16 h-16 ${plan.bgColor} rounded-2xl flex items-center justify-center mx-auto mb-4 glow`}>
-                      <plan.icon size={32} className={`${plan.color.includes('gray') ? 'text-gray-400' : plan.color.includes('indigo') ? 'text-indigo-400' : 'text-yellow-400'}`} />
+                    <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <plan.icon size={32} className="text-white" />
                     </div>
                     <h3 className="text-3xl font-bold text-white mb-2">{plan.name}</h3>
                     <div className="mb-4">
-                      <span className="text-5xl font-bold gradient-text">{plan.price}</span>
+                      <span className="text-5xl font-bold text-white">{plan.price}</span>
                       {plan.period && (
                         <span className="text-gray-400 text-xl">{plan.period}</span>
                       )}
@@ -174,7 +174,7 @@ export default function Pricing() {
                     onClick={toggleWaitlist}
                     className={`w-full py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-300 ${
                       plan.popular
-                        ? 'btn-modern glow-hover'
+                        ? 'btn-modern'
                         : 'glass border border-white/20 text-white hover:bg-white/10'
                     }`}
                   >
