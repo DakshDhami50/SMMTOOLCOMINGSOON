@@ -16,8 +16,8 @@ export default function Hero() {
       <section className="relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl float"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl float" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl float"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl float" style={{ animationDelay: '2s' }}></div>
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
@@ -27,14 +27,14 @@ export default function Hero() {
                 <TextPressure
                   text="Zenithly"
                   flex={true}
-                  alpha={true}
+                  alpha={false}
                   stroke={true}
-                  width={true}
+                  width={false}
                   weight={true}
                   italic={false}
                   textColor="#ffffff"
                   strokeColor="#6366f1"
-                  minFontSize={48}
+                  minFontSize={64}
                   className="h-32"
                 />
               </div>

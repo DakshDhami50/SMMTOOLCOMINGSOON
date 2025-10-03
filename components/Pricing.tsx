@@ -79,8 +79,8 @@ export default function Pricing() {
       <section id="pricing" className="py-32 px-4 sm:px-6 lg:px-8 relative">
         {/* Background Effects */}
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/3 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl float"></div>
-          <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl float" style={{ animationDelay: '4s' }}></div>
+          <div className="absolute top-1/4 left-1/3 w-80 h-80 bg-indigo-500/5 rounded-full blur-3xl float"></div>
+          <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl float" style={{ animationDelay: '4s' }}></div>
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
@@ -90,14 +90,14 @@ export default function Pricing() {
                 <TextPressure
                   text="Pricing"
                   flex={true}
-                  alpha={true}
+                  alpha={false}
                   stroke={true}
-                  width={true}
+                  width={false}
                   weight={true}
                   italic={false}
                   textColor="#ffffff"
                   strokeColor="#f59e0b"
-                  minFontSize={36}
+                  minFontSize={48}
                   className="h-20"
                 />
               </div>

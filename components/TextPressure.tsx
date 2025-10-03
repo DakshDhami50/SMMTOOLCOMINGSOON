@@ -25,7 +25,7 @@ const TextPressure: React.FC<TextPressureProps> = ({
   weight = false,
   italic = false,
   textColor = '#ffffff',
-  strokeColor = '#ff0000',
+  strokeColor = '#6366f1',
   minFontSize = 36,
   className = ''
 }) => {
@@ -56,47 +56,51 @@ const TextPressure: React.FC<TextPressureProps> = ({
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    // Set canvas size
-    canvas.width = dimensions.width
-    canvas.height = dimensions.height
+    // Set canvas size with high DPI support
+    const dpr = window.devicePixelRatio || 1
+    canvas.width = dimensions.width * dpr
+    canvas.height = dimensions.height * dpr
+    canvas.style.width = `${dimensions.width}px`
+    canvas.style.height = `${dimensions.height}px`
+    ctx.scale(dpr, dpr)
 
     // Clear canvas
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx.clearRect(0, 0, dimensions.width, dimensions.height)
 
     // Set text properties
-    const fontSize = Math.max(minFontSize, dimensions.width / 10)
-    ctx.font = `${italic ? 'italic ' : ''}${weight ? 'bold ' : ''}${fontSize}px Arial, sans-serif`
+    const fontSize = Math.max(minFontSize, Math.min(dimensions.width / 8, 120))
+    const fontFamily = 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+    ctx.font = `${italic ? 'italic ' : ''}${weight ? 'bold ' : ''}${fontSize}px ${fontFamily}`
     ctx.textAlign = 'center'
     ctx.textBaseline = 'middle'
 
-    // Calculate text metrics
-    const textMetrics = ctx.measureText(text)
-    const textWidth = textMetrics.width
-    const textHeight = fontSize
-
     // Position text in center
-    const x = canvas.width / 2
-    const y = canvas.height / 2
+    const x = dimensions.width / 2
+    const y = dimensions.height / 2
 
-    // Draw stroke if enabled
+    // Draw shadow/background text if stroke is enabled
     if (stroke) {
-      ctx.strokeStyle = strokeColor
-      ctx.lineWidth = 2
-      ctx.strokeText(text, x, y)
+      ctx.fillStyle = strokeColor + '20'
+      ctx.fillText(text, x + 2, y + 2)
+      
+      ctx.fillStyle = strokeColor + '40'
+      ctx.fillText(text, x + 1, y + 1)
     }
 
     // Draw main text
     ctx.fillStyle = textColor
     ctx.fillText(text, x, y)
 
-    // Add width variation if enabled
-    if (width) {
-      ctx.font = `${italic ? 'italic ' : ''}${weight ? 'bold ' : ''}${fontSize * 1.2}px Arial, sans-serif`
-      ctx.fillStyle = textColor + '40' // Add alpha
+    // Add glow effect
+    if (stroke) {
+      ctx.shadowColor = strokeColor
+      ctx.shadowBlur = 20
+      ctx.fillStyle = textColor
       ctx.fillText(text, x, y)
+      ctx.shadowBlur = 0
     }
 
-  }, [text, textColor, strokeColor, minFontSize, dimensions, stroke, weight, italic, width])
+  }, [text, textColor, strokeColor, minFontSize, dimensions, stroke, weight, italic])
 
   return (
     <div className={`${flex ? 'flex items-center justify-center' : ''} ${className}`}>

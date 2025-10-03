@@ -60,8 +60,8 @@ export default function Features() {
     <section id="features" className="py-32 px-4 sm:px-6 lg:px-8 relative">
       {/* Background Effects */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl float"></div>
-        <div className="absolute bottom-1/3 left-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl float" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl float"></div>
+        <div className="absolute bottom-1/3 left-1/4 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl float" style={{ animationDelay: '3s' }}></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -71,14 +71,14 @@ export default function Features() {
               <TextPressure
                 text="Features"
                 flex={true}
-                alpha={true}
+                alpha={false}
                 stroke={true}
-                width={true}
+                width={false}
                 weight={true}
                 italic={false}
                 textColor="#ffffff"
                 strokeColor="#8b5cf6"
-                minFontSize={36}
+                minFontSize={48}
                 className="h-20"
               />
             </div>
