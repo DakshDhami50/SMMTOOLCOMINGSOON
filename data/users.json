@@ -1,0 +1,25 @@
+[
+  {
+    "id": "usr_1759327835132",
+    "name": "Zenithly Demo",
+    "email": "admin@zenithly.app",
+    "passwordHash": "$2b$10$N7df8vgiFtaji2wKgVHyieiIf7ccdCgLUvsP3qhRsvVdex8jmEyly",
+    "createdAt": "2025-10-01T14:10:35.132Z"
+  },
+  {
+    "id": "usr_1759327929679",
+    "name": "Daksh",
+    "email": "dakshdhami0@gmail.com",
+    "passwordHash": "$2b$10$knIGUWMTyAtesPDt8B9ZwOmwt9Bta5JSg5rtXV5914bMZsRNIbJbm",
+    "createdAt": "2025-10-01T14:12:09.679Z"
+  },
+  {
+    "id": "usr_1759328182435",
+    "name": "daksh",
+    "email": "dakshdhami0@gmail",
+    "passwordHash": "$2b$10$hWeR8kdE.67/uAFxqhwaQ.whyZ6rqri9XDjAhCI07Aq6.uWrZkaia",
+    "agencyName": "zennie",
+    "plan": "Pro",
+    "createdAt": "2025-10-01T14:16:22.435Z"
+  }
+]
