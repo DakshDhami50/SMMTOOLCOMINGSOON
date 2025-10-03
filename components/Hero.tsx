@@ -1,8 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ArrowRight, CheckCircle, Sparkles, Zap, Shield } from 'lucide-react'
-import TextPressure from './TextPressure'
+import { ArrowRight, Sparkles } from 'lucide-react'
 import FadeContent from './FadeContent'
 import HeroMockup from './HeroMockup'
 import { emailStorage } from '@/lib/emailStorage'
@@ -24,14 +23,11 @@ export default function Hero() {
     const company = formData.get('company') as string
 
     try {
-      // Add email to storage
       emailStorage.addEmail({ name, email, company: company || undefined })
-      
       setSubmitMessage('Successfully joined the waitlist!')
       setTimeout(() => {
         setIsWaitlistOpen(false)
         setSubmitMessage('')
-        // Reset form
         e.currentTarget.reset()
       }, 2000)
     } catch (error) {
@@ -43,89 +39,57 @@ export default function Hero() {
 
   return (
     <>
-      <section className="relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Animated Background Effects */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-indigo-500/3 rounded-full blur-3xl float"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-32 h-32 bg-purple-500/3 rounded-full blur-3xl float-reverse"></div>
-          <div className="absolute top-1/2 left-1/2 w-16 h-16 bg-blue-500/2 rounded-full blur-2xl float" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute bottom-1/3 left-1/6 w-20 h-20 bg-pink-500/2 rounded-full blur-2xl float-reverse" style={{ animationDelay: '4s' }}></div>
+      <section className="relative py-32 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto text-center">
+          <FadeContent delay={200}>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
+              Social Media Management
+              <span className="block mt-4 text-gray-300">Made Simple</span>
+            </h1>
+          </FadeContent>
+
+          <FadeContent delay={400}>
+            <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+              The all-in-one platform for managing your social media presence. 
+              Schedule posts, analyze performance, and grow your audience effortlessly.
+            </p>
+          </FadeContent>
+          
+          <FadeContent delay={600}>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+              <button
+                onClick={toggleWaitlist}
+                className="bg-white text-black px-10 py-4 text-lg font-semibold rounded-xl hover:bg-gray-100 transition-all duration-300 flex items-center gap-3 group"
+              >
+                <Sparkles className="w-5 h-5" />
+                Join Waitlist
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </button>
+              <button className="border border-white/20 text-white px-10 py-4 rounded-xl text-lg font-semibold hover:bg-white/10 transition-all duration-300">
+                Learn More
+              </button>
+            </div>
+          </FadeContent>
+
+          <FadeContent delay={800}>
+            <div className="mt-16">
+              <HeroMockup />
+            </div>
+          </FadeContent>
         </div>
-
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center">
-            <FadeContent delay={200}>
-              <div className="mb-8">
-                <TextPressure
-                  text="Zenithly"
-                  flex={true}
-                  alpha={false}
-                  stroke={false}
-                  width={false}
-                  weight={true}
-                  italic={false}
-                  textColor="#ffffff"
-                  strokeColor="#d946ef"
-                  minFontSize={64}
-                  className="h-32"
-                />
-              </div>
-            </FadeContent>
-
-                <FadeContent delay={400}>
-                  <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-8 leading-tight">
-                    <span className="slide-in-up block">The Future of</span>
-                    <span className="text-white block mt-2 slide-in-up stagger-1">
-                      Social Media Management
-                    </span>
-                  </h1>
-                </FadeContent>
-
-            <FadeContent delay={600}>
-              <p className="text-xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-                Zenithly is coming soon! Join thousands of businesses already on our waitlist 
-                to be the first to experience the most powerful social media management platform.
-              </p>
-            </FadeContent>
-            
-                <FadeContent delay={800}>
-                  <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-                    <button
-                      onClick={toggleWaitlist}
-                      className="btn-modern px-10 py-4 text-lg font-semibold flex items-center gap-3 group hover-lift"
-                    >
-                      <Sparkles className="w-5 h-5 group-hover:rotate-12 smooth-transition" />
-                      Join Waitlist
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 smooth-transition" />
-                    </button>
-                    <button className="glass border border-white/20 text-white px-10 py-4 rounded-xl text-lg font-semibold hover:bg-white/10 smooth-transition flex items-center gap-3 group hover-scale">
-                      <Zap className="w-5 h-5 group-hover:scale-110 smooth-transition" />
-                      Learn More
-                    </button>
-                  </div>
-                </FadeContent>
-
-            <FadeContent delay={1000}>
-              <div className="mt-16">
-                <HeroMockup />
-              </div>
-            </FadeContent>
-          </div>
-        </div>
-
       </section>
 
       {/* Waitlist Modal */}
       {isWaitlistOpen && (
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <FadeContent className="glass-dark rounded-2xl max-w-md w-full p-8 border border-white/20">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <FadeContent className="bg-black border border-white/20 rounded-2xl max-w-md w-full p-8">
             <div className="text-center mb-6">
               <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Sparkles className="w-8 h-8 text-black" />
               </div>
               <h2 className="text-3xl font-bold text-white mb-2">Join Our Waitlist</h2>
               <p className="text-gray-300">
-                Be the first to know when Zenithly launches and get early access to our platform.
+                Be the first to know when Zenithly launches.
               </p>
             </div>
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -139,7 +103,7 @@ export default function Hero() {
                 </div>
               )}
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
                   Full Name
                 </label>
                 <input
@@ -147,12 +111,12 @@ export default function Hero() {
                   id="name"
                   name="name"
                   required
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
                   placeholder="Enter your full name"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                   Email Address
                 </label>
                 <input
@@ -160,19 +124,19 @@ export default function Hero() {
                   id="email"
                   name="email"
                   required
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
                   placeholder="Enter your email"
                 />
               </div>
               <div>
-                <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="company" className="block text-sm font-medium text-white mb-2">
                   Company (Optional)
                 </label>
                 <input
                   type="text"
                   id="company"
                   name="company"
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
                   placeholder="Enter your company name"
                 />
               </div>
@@ -180,14 +144,14 @@ export default function Hero() {
                 <button
                   type="button"
                   onClick={toggleWaitlist}
-                  className="flex-1 px-6 py-3 border border-white/20 text-gray-300 rounded-xl hover:bg-white/10 transition-all duration-300"
+                  className="flex-1 px-6 py-3 border border-white/20 text-white rounded-xl hover:bg-white/10 transition-all duration-300"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 px-6 py-3 btn-modern glow-hover disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 px-6 py-3 bg-white text-black rounded-xl hover:bg-gray-100 transition-all duration-300 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? 'Joining...' : 'Join Waitlist'}
                 </button>

@@ -135,21 +135,18 @@ body::before {
 
 /* Modern button styles */
 .btn-modern {
-  position: relative;
-  overflow: hidden;
   background: white;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: black;
   border-radius: 12px;
   padding: 12px 24px;
-  color: black;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  border: none;
 }
 
 .btn-modern:hover {
   background: rgba(255, 255, 255, 0.9);
-  transform: translateY(-2px);
 }
 
 /* Smooth and fluid animations */

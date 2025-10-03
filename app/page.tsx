@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="min-h-screen animated-gradient relative overflow-hidden">
+    <main className="min-h-screen bg-black text-white">
       <Navbar />
       <Hero />
       <Features />
