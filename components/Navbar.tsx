@@ -1,8 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { Menu, X, Sparkles } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import FadeContent from './FadeContent'
+import ZLogo from './ZLogo'
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -18,11 +19,8 @@ export default function Navbar() {
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <FadeContent delay={200} className="flex-shrink-0">
-              <div className="flex items-center space-x-2 hover-scale">
-                <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center glow-animation">
-                  <Sparkles className="w-6 h-6 text-white hover-rotate" />
-                </div>
-                <h1 className="text-2xl font-bold gradient-text">Zenithly</h1>
+              <div className="hover-scale">
+                <ZLogo size={40} />
               </div>
             </FadeContent>
 

@@ -35,7 +35,7 @@ body {
   position: relative;
 }
 
-/* Running gradient background */
+/* Optimized gradient background */
 body::before {
   content: '';
   position: fixed;
@@ -44,15 +44,11 @@ body::before {
   width: 100%;
   height: 100%;
   background: linear-gradient(
-    45deg,
-    rgba(99, 102, 241, 0.1) 0%,
-    rgba(217, 70, 239, 0.1) 25%,
-    rgba(16, 185, 129, 0.1) 50%,
-    rgba(99, 102, 241, 0.1) 75%,
-    rgba(217, 70, 239, 0.1) 100%
+    135deg,
+    rgba(99, 102, 241, 0.05) 0%,
+    rgba(217, 70, 239, 0.05) 50%,
+    rgba(16, 185, 129, 0.05) 100%
   );
-  background-size: 400% 400%;
-  animation: gradientShift 20s ease infinite;
   pointer-events: none;
   z-index: -1;
 }
@@ -98,49 +94,26 @@ body::before {
   animation: gradientShift 3s ease infinite;
 }
 
-/* Mouse cursor effects */
-.cursor-glow {
-  position: relative;
-  overflow: hidden;
+/* Optimized hover effects */
+.hover-lift {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.cursor-glow::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
-  pointer-events: none;
-  z-index: -1;
+.hover-lift:hover {
+  transform: translateY(-4px);
 }
 
-.cursor-glow:hover::before {
-  width: 300px;
-  height: 300px;
+.hover-scale {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Mouse trail effect */
-.mouse-trail {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.8) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transition: transform 0.1s ease;
+.hover-scale:hover {
+  transform: scale(1.02);
 }
 
-/* Animated gradient background */
+/* Optimized gradient background */
 .animated-gradient {
-  background: linear-gradient(-45deg, #0b0b10, #1a1a1f, #2a2a2f, #0b0b10);
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
+  background: linear-gradient(135deg, #0b0b10 0%, #1a1a1f 50%, #0b0b10 100%);
 }
 
 @keyframes gradientShift {

@@ -103,9 +103,9 @@ export default function Features() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <FadeContent key={index} delay={200 + (index * 100)}>
-              <div className="glass-dark rounded-2xl p-8 border border-white/10 hover:border-white/20 smooth-transition group hover-lift scale-in glow-hover">
+              <div className="glass-dark rounded-2xl p-8 border border-white/10 hover:border-white/20 smooth-transition group hover-lift">
                 <div className="flex flex-col items-center text-center">
-                  <div className={`w-16 h-16 ${feature.bgColor} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 smooth-transition glow-animation`}>
+                  <div className={`w-16 h-16 ${feature.bgColor} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 smooth-transition`}>
                     <feature.icon size={32} className={`${feature.iconColor} group-hover:rotate-12 smooth-transition`} />
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-4 group-hover:gradient-text smooth-transition">
@@ -115,9 +115,6 @@ export default function Features() {
                     {feature.description}
                   </p>
                 </div>
-                
-                {/* Hover effect gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 rounded-2xl smooth-transition`}></div>
               </div>
             </FadeContent>
           ))}

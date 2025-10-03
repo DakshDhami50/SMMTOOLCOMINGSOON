@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { ArrowRight, CheckCircle, Sparkles, Zap, Shield } from 'lucide-react'
 import TextPressure from './TextPressure'
 import FadeContent from './FadeContent'
+import HeroMockup from './HeroMockup'
 import { emailStorage } from '@/lib/emailStorage'
 
 export default function Hero() {
@@ -105,31 +106,8 @@ export default function Hero() {
             </FadeContent>
 
             <FadeContent delay={1000}>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div className="glass-dark rounded-2xl p-6 border border-white/10 hover:border-indigo-500/50 smooth-transition group hover-lift scale-in stagger-1">
-                  <div className="flex items-center justify-center gap-3 text-gray-300 group-hover:text-white">
-                    <div className="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 smooth-transition">
-                      <CheckCircle size={20} className="text-green-400 group-hover:rotate-12 smooth-transition" />
-                    </div>
-                    <span className="font-medium">Free Forever Plan</span>
-                  </div>
-                </div>
-                <div className="glass-dark rounded-2xl p-6 border border-white/10 hover:border-indigo-500/50 smooth-transition group hover-lift scale-in stagger-2">
-                  <div className="flex items-center justify-center gap-3 text-gray-300 group-hover:text-white">
-                    <div className="w-10 h-10 bg-blue-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 smooth-transition">
-                      <Shield size={20} className="text-blue-400 group-hover:rotate-12 smooth-transition" />
-                    </div>
-                    <span className="font-medium">No Credit Card Required</span>
-                  </div>
-                </div>
-                <div className="glass-dark rounded-2xl p-6 border border-white/10 hover:border-indigo-500/50 smooth-transition group hover-lift scale-in stagger-3">
-                  <div className="flex items-center justify-center gap-3 text-gray-300 group-hover:text-white">
-                    <div className="w-10 h-10 bg-purple-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 smooth-transition">
-                      <Zap size={20} className="text-purple-400 group-hover:rotate-12 smooth-transition" />
-                    </div>
-                    <span className="font-medium">Early Access</span>
-                  </div>
-                </div>
+              <div className="mt-16">
+                <HeroMockup />
               </div>
             </FadeContent>
           </div>
