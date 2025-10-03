@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { ArrowRight, CheckCircle, Sparkles, Zap, Shield } from 'lucide-react'
 import TextPressure from './TextPressure'
 import FadeContent from './FadeContent'
-import GradualBlur from './GradualBlur'
 
 export default function Hero() {
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false)
@@ -14,10 +13,10 @@ export default function Hero() {
   return (
     <>
       <section className="relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Optimized Background Effects */}
+        {/* Minimal Background Effects */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl float" style={{ willChange: 'transform' }}></div>
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl float" style={{ animationDelay: '4s', willChange: 'transform' }}></div>
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-indigo-500/3 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-32 h-32 bg-purple-500/3 rounded-full blur-3xl"></div>
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
@@ -104,18 +103,6 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Gradual Blur Effect */}
-        <GradualBlur
-          target="parent"
-          position="bottom"
-          height="6rem"
-          strength={2}
-          divCount={5}
-          curve="bezier"
-          exponential={true}
-          opacity={1}
-          className="pointer-events-none"
-        />
       </section>
 
       {/* Waitlist Modal */}

@@ -58,10 +58,10 @@ const features = [
 export default function Features() {
   return (
     <section id="features" className="py-32 px-4 sm:px-6 lg:px-8 relative">
-      {/* Optimized Background Effects */}
+      {/* Minimal Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-purple-500/3 rounded-full blur-3xl float" style={{ willChange: 'transform' }}></div>
-        <div className="absolute bottom-1/3 left-1/4 w-48 h-48 bg-blue-500/3 rounded-full blur-3xl float" style={{ animationDelay: '6s', willChange: 'transform' }}></div>
+        <div className="absolute top-1/3 right-1/4 w-24 h-24 bg-purple-500/2 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-blue-500/2 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">

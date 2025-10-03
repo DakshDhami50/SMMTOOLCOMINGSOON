@@ -4,7 +4,6 @@ import Features from '@/components/Features'
 import Pricing from '@/components/Pricing'
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
-import GradualBlur from '@/components/GradualBlur'
 
 export const metadata: Metadata = {
   title: 'Zenithly - Social Media Management Platform',
@@ -19,19 +18,6 @@ export default function Home() {
       <Features />
       <Pricing />
       <Footer />
-      
-      {/* Add subtle blur effects */}
-      <GradualBlur
-        target="parent"
-        position="top"
-        height="6rem"
-        strength={2}
-        divCount={5}
-        curve="bezier"
-        exponential={true}
-        opacity={1}
-        className="pointer-events-none"
-      />
     </main>
   )
 }
