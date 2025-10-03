@@ -13,14 +13,14 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 border-b border-white/10 bg-black/90 backdrop-blur-md">
+      <nav className="sticky top-0 z-50 border-b border-white/10 bg-black/90 backdrop-blur-md smooth-transition">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <FadeContent delay={200} className="flex-shrink-0">
-              <div className="flex items-center space-x-2">
-                <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center glow">
-                  <Sparkles className="w-6 h-6 text-white" />
+              <div className="flex items-center space-x-2 hover-scale">
+                <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center glow-animation">
+                  <Sparkles className="w-6 h-6 text-white hover-rotate" />
                 </div>
                 <h1 className="text-2xl font-bold gradient-text">Zenithly</h1>
               </div>

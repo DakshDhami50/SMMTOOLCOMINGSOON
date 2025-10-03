@@ -77,10 +77,12 @@ export default function Pricing() {
   return (
     <>
       <section id="pricing" className="py-32 px-4 sm:px-6 lg:px-8 relative">
-        {/* Minimal Background Effects */}
+        {/* Animated Background Effects */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/3 w-28 h-28 bg-indigo-500/2 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/3 w-28 h-28 bg-purple-500/2 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/4 left-1/3 w-28 h-28 bg-indigo-500/2 rounded-full blur-3xl float"></div>
+          <div className="absolute bottom-1/4 right-1/3 w-28 h-28 bg-purple-500/2 rounded-full blur-3xl float-reverse"></div>
+          <div className="absolute top-1/2 right-1/4 w-20 h-20 bg-pink-500/2 rounded-full blur-2xl float" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute bottom-1/3 left-1/6 w-24 h-24 bg-cyan-500/2 rounded-full blur-2xl float-reverse" style={{ animationDelay: '4s' }}></div>
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">

@@ -13,10 +13,12 @@ export default function Hero() {
   return (
     <>
       <section className="relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Minimal Background Effects */}
+        {/* Animated Background Effects */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-indigo-500/3 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-32 h-32 bg-purple-500/3 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-indigo-500/3 rounded-full blur-3xl float"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-32 h-32 bg-purple-500/3 rounded-full blur-3xl float-reverse"></div>
+          <div className="absolute top-1/2 left-1/2 w-16 h-16 bg-blue-500/2 rounded-full blur-2xl float" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute bottom-1/3 left-1/6 w-20 h-20 bg-pink-500/2 rounded-full blur-2xl float-reverse" style={{ animationDelay: '4s' }}></div>
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
@@ -41,8 +43,8 @@ export default function Hero() {
 
             <FadeContent delay={400}>
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-8 leading-tight">
-                The Future of
-                <span className="gradient-text block mt-2">
+                <span className="slide-in-up block">The Future of</span>
+                <span className="gradient-text block mt-2 slide-in-up stagger-1 shimmer">
                   Social Media Management
                 </span>
               </h1>
@@ -59,14 +61,14 @@ export default function Hero() {
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
                 <button
                   onClick={toggleWaitlist}
-                  className="btn-modern glow-hover px-10 py-4 text-lg font-semibold flex items-center gap-3 group"
+                  className="btn-modern glow-hover px-10 py-4 text-lg font-semibold flex items-center gap-3 group hover-lift bounce"
                 >
-                  <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+                  <Sparkles className="w-5 h-5 group-hover:rotate-12 smooth-transition" />
                   Join Waitlist
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 smooth-transition" />
                 </button>
-                <button className="glass border border-white/20 text-white px-10 py-4 rounded-xl text-lg font-semibold hover:bg-white/10 transition-all duration-300 flex items-center gap-3 group">
-                  <Zap className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                <button className="glass border border-white/20 text-white px-10 py-4 rounded-xl text-lg font-semibold hover:bg-white/10 smooth-transition flex items-center gap-3 group hover-scale">
+                  <Zap className="w-5 h-5 group-hover:scale-110 smooth-transition" />
                   Learn More
                 </button>
               </div>
@@ -74,26 +76,26 @@ export default function Hero() {
 
             <FadeContent delay={1000}>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div className="glass-dark rounded-2xl p-6 border border-white/10 hover:border-indigo-500/50 transition-all duration-300 group">
+                <div className="glass-dark rounded-2xl p-6 border border-white/10 hover:border-indigo-500/50 smooth-transition group hover-lift scale-in stagger-1">
                   <div className="flex items-center justify-center gap-3 text-gray-300 group-hover:text-white">
-                    <div className="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center">
-                      <CheckCircle size={20} className="text-green-400" />
+                    <div className="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 smooth-transition">
+                      <CheckCircle size={20} className="text-green-400 group-hover:rotate-12 smooth-transition" />
                     </div>
                     <span className="font-medium">Free Forever Plan</span>
                   </div>
                 </div>
-                <div className="glass-dark rounded-2xl p-6 border border-white/10 hover:border-indigo-500/50 transition-all duration-300 group">
+                <div className="glass-dark rounded-2xl p-6 border border-white/10 hover:border-indigo-500/50 smooth-transition group hover-lift scale-in stagger-2">
                   <div className="flex items-center justify-center gap-3 text-gray-300 group-hover:text-white">
-                    <div className="w-10 h-10 bg-blue-500/20 rounded-xl flex items-center justify-center">
-                      <Shield size={20} className="text-blue-400" />
+                    <div className="w-10 h-10 bg-blue-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 smooth-transition">
+                      <Shield size={20} className="text-blue-400 group-hover:rotate-12 smooth-transition" />
                     </div>
                     <span className="font-medium">No Credit Card Required</span>
                   </div>
                 </div>
-                <div className="glass-dark rounded-2xl p-6 border border-white/10 hover:border-indigo-500/50 transition-all duration-300 group">
+                <div className="glass-dark rounded-2xl p-6 border border-white/10 hover:border-indigo-500/50 smooth-transition group hover-lift scale-in stagger-3">
                   <div className="flex items-center justify-center gap-3 text-gray-300 group-hover:text-white">
-                    <div className="w-10 h-10 bg-purple-500/20 rounded-xl flex items-center justify-center">
-                      <Zap size={20} className="text-purple-400" />
+                    <div className="w-10 h-10 bg-purple-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 smooth-transition">
+                      <Zap size={20} className="text-purple-400 group-hover:rotate-12 smooth-transition" />
                     </div>
                     <span className="font-medium">Early Access</span>
                   </div>
