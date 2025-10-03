@@ -4,6 +4,7 @@ import Features from '@/components/Features'
 import Pricing from '@/components/Pricing'
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
+import MouseEffects from '@/components/MouseEffects'
 
 export const metadata: Metadata = {
   title: 'Zenithly - Social Media Management Platform',
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="min-h-screen animated-gradient relative overflow-hidden">
+      <MouseEffects />
       <Navbar />
       <Hero />
       <Features />

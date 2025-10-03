@@ -72,6 +72,26 @@ export default function Footer() {
             </div>
           </FadeContent>
 
+          {/* Social Media */}
+          <FadeContent delay={1000}>
+            <div>
+              <h4 className="text-xl font-bold text-white mb-6">Follow Us</h4>
+              <div className="flex space-x-4">
+                <a href="https://instagram.com/zenithlyin" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-600 rounded-xl flex items-center justify-center hover:scale-110 transition-all duration-300 group glow-animation">
+                  <span className="text-white font-bold group-hover:rotate-12 transition-transform duration-300">IG</span>
+                </a>
+                <a href="#" className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center hover:scale-110 transition-all duration-300 group glow-animation">
+                  <span className="text-white font-bold group-hover:rotate-12 transition-transform duration-300">T</span>
+                </a>
+                <a href="#" className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center hover:scale-110 transition-all duration-300 group glow-animation">
+                  <span className="text-white font-bold group-hover:rotate-12 transition-transform duration-300">LI</span>
+                </a>
+                <a href="#" className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center hover:scale-110 transition-all duration-300 group glow-animation">
+                  <span className="text-white font-bold group-hover:rotate-12 transition-transform duration-300">YT</span>
+                </a>
+              </div>
+            </div>
+          </FadeContent>
         </div>
 
         <FadeContent delay={1200}>

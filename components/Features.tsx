@@ -74,12 +74,12 @@ export default function Features() {
                 text="Features"
                 flex={true}
                 alpha={false}
-                stroke={true}
+                stroke={false}
                 width={false}
                 weight={true}
                 italic={false}
                 textColor="#ffffff"
-                strokeColor="#8b5cf6"
+                strokeColor="#d946ef"
                 minFontSize={48}
                 className="h-20"
               />

@@ -4,11 +4,41 @@ import { useState } from 'react'
 import { ArrowRight, CheckCircle, Sparkles, Zap, Shield } from 'lucide-react'
 import TextPressure from './TextPressure'
 import FadeContent from './FadeContent'
+import { emailStorage } from '@/lib/emailStorage'
 
 export default function Hero() {
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitMessage, setSubmitMessage] = useState('')
 
   const toggleWaitlist = () => setIsWaitlistOpen(!isWaitlistOpen)
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    
+    const formData = new FormData(e.currentTarget)
+    const name = formData.get('name') as string
+    const email = formData.get('email') as string
+    const company = formData.get('company') as string
+
+    try {
+      // Add email to storage
+      emailStorage.addEmail({ name, email, company: company || undefined })
+      
+      setSubmitMessage('Successfully joined the waitlist!')
+      setTimeout(() => {
+        setIsWaitlistOpen(false)
+        setSubmitMessage('')
+        // Reset form
+        e.currentTarget.reset()
+      }, 2000)
+    } catch (error) {
+      setSubmitMessage('Something went wrong. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
     <>
@@ -29,12 +59,12 @@ export default function Hero() {
                   text="Zenithly"
                   flex={true}
                   alpha={false}
-                  stroke={true}
+                  stroke={false}
                   width={false}
                   weight={true}
                   italic={false}
                   textColor="#ffffff"
-                  strokeColor="#6366f1"
+                  strokeColor="#d946ef"
                   minFontSize={64}
                   className="h-32"
                 />
@@ -120,7 +150,16 @@ export default function Hero() {
                 Be the first to know when Zenithly launches and get early access to our platform.
               </p>
             </div>
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {submitMessage && (
+                <div className={`p-4 rounded-xl text-center ${
+                  submitMessage.includes('Successfully') 
+                    ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
+                    : 'bg-red-500/20 text-red-400 border border-red-500/30'
+                }`}>
+                  {submitMessage}
+                </div>
+              )}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                   Full Name
@@ -169,9 +208,10 @@ export default function Hero() {
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 px-6 py-3 btn-modern glow-hover"
+                  disabled={isSubmitting}
+                  className="flex-1 px-6 py-3 btn-modern glow-hover disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Join Waitlist
+                  {isSubmitting ? 'Joining...' : 'Join Waitlist'}
                 </button>
               </div>
             </form>

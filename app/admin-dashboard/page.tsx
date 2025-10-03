@@ -1,19 +1,21 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { BarChart3, Users, Mail, TrendingUp, Settings, LogOut, Eye, EyeOff } from 'lucide-react'
+import { BarChart3, Users, Mail, TrendingUp, Settings, LogOut, Eye, EyeOff, Trash2 } from 'lucide-react'
 import FadeContent from '@/components/FadeContent'
 import TextPressure from '@/components/TextPressure'
+import { emailStorage, EmailData } from '@/lib/emailStorage'
 
 export default function AdminDashboard() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
   const [password, setPassword] = useState('')
+  const [emails, setEmails] = useState<EmailData[]>([])
   const [stats, setStats] = useState({
-    totalUsers: 1247,
-    waitlistSignups: 89,
+    totalUsers: 0,
+    waitlistSignups: 0,
     pageViews: 15420,
-    conversionRate: 12.5
+    conversionRate: 0
   })
 
   const ADMIN_PASSWORD = 'zenithly_admin_2024'
@@ -31,6 +33,30 @@ export default function AdminDashboard() {
     setIsAuthenticated(false)
     setPassword('')
   }
+
+  const loadEmails = () => {
+    const emailData = emailStorage.getAllEmails()
+    setEmails(emailData)
+    setStats({
+      totalUsers: emailData.length,
+      waitlistSignups: emailData.length,
+      pageViews: 15420,
+      conversionRate: emailData.length > 0 ? (emailData.length / 15420) * 100 : 0
+    })
+  }
+
+  const clearAllEmails = () => {
+    if (confirm('Are you sure you want to clear all emails? This action cannot be undone.')) {
+      emailStorage.clearEmails()
+      loadEmails()
+    }
+  }
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      loadEmails()
+    }
+  }, [isAuthenticated])
 
   if (!isAuthenticated) {
     return (
@@ -188,8 +214,50 @@ export default function AdminDashboard() {
             </FadeContent>
           </div>
 
-          {/* Charts Section */}
+          {/* Email List Section */}
           <FadeContent delay={800}>
+            <div className="glass-dark rounded-2xl p-6 border border-white/10 mb-6">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-xl font-bold text-white">Waitlist Emails ({emails.length})</h3>
+                <button
+                  onClick={clearAllEmails}
+                  className="flex items-center gap-2 px-4 py-2 text-red-400 hover:text-red-300 transition-colors"
+                >
+                  <Trash2 size={16} />
+                  Clear All
+                </button>
+              </div>
+              <div className="max-h-96 overflow-y-auto">
+                {emails.length === 0 ? (
+                  <div className="text-center py-8 text-gray-400">
+                    No emails yet. Share your website to start collecting signups!
+                  </div>
+                ) : (
+                  <div className="space-y-3">
+                    {emails.map((email) => (
+                      <div key={email.id} className="flex items-center justify-between p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-3 mb-1">
+                            <span className="font-medium text-white">{email.name}</span>
+                            {email.company && (
+                              <span className="text-sm text-gray-400">({email.company})</span>
+                            )}
+                          </div>
+                          <div className="text-sm text-gray-300">{email.email}</div>
+                        </div>
+                        <div className="text-xs text-gray-500">
+                          {new Date(email.timestamp).toLocaleDateString()}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </FadeContent>
+
+          {/* Charts Section */}
+          <FadeContent delay={1000}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <div className="glass-dark rounded-2xl p-6 border border-white/10">
                 <h3 className="text-xl font-bold text-white mb-4">Analytics Overview</h3>
@@ -200,21 +268,20 @@ export default function AdminDashboard() {
               <div className="glass-dark rounded-2xl p-6 border border-white/10">
                 <h3 className="text-xl font-bold text-white mb-4">Recent Activity</h3>
                 <div className="space-y-3">
-                  <div className="flex items-center gap-3 p-3 bg-white/5 rounded-lg">
-                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                    <span className="text-gray-300">New waitlist signup</span>
-                    <span className="text-gray-500 text-sm ml-auto">2m ago</span>
-                  </div>
-                  <div className="flex items-center gap-3 p-3 bg-white/5 rounded-lg">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                    <span className="text-gray-300">Page view spike</span>
-                    <span className="text-gray-500 text-sm ml-auto">15m ago</span>
-                  </div>
-                  <div className="flex items-center gap-3 p-3 bg-white/5 rounded-lg">
-                    <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                    <span className="text-gray-300">Feature request</span>
-                    <span className="text-gray-500 text-sm ml-auto">1h ago</span>
-                  </div>
+                  {emails.slice(0, 3).map((email, index) => (
+                    <div key={email.id} className="flex items-center gap-3 p-3 bg-white/5 rounded-lg">
+                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                      <span className="text-gray-300">New signup: {email.name}</span>
+                      <span className="text-gray-500 text-sm ml-auto">
+                        {new Date(email.timestamp).toLocaleTimeString()}
+                      </span>
+                    </div>
+                  ))}
+                  {emails.length === 0 && (
+                    <div className="text-center py-4 text-gray-400 text-sm">
+                      No recent activity
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
