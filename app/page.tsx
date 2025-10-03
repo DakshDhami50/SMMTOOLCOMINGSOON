@@ -22,12 +22,14 @@ export default function Home() {
       
       {/* Add subtle blur effects */}
       <GradualBlur
+        target="parent"
         position="top"
-        height="8rem"
-        strength={1.5}
-        divCount={6}
-        curve="ease-out"
-        opacity={0.8}
+        height="6rem"
+        strength={2}
+        divCount={5}
+        curve="bezier"
+        exponential={true}
+        opacity={1}
         className="pointer-events-none"
       />
     </main>

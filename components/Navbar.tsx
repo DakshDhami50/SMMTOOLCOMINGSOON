@@ -13,7 +13,12 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="glass-dark sticky top-0 z-50 border-b border-white/10">
+      <nav className="sticky top-0 z-50 border-b border-white/10" style={{
+        background: 'rgba(0, 0, 0, 0.8)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
+      }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}

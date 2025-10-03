@@ -1,6 +1,9 @@
 'use client'
 
 import React, { CSSProperties, useEffect, useRef, useState, useMemo, PropsWithChildren } from 'react'
+import * as math from 'mathjs'
+
+import './GradualBlur.css'
 
 type GradualBlurProps = {
   position?: 'top' | 'bottom' | 'left' | 'right'
@@ -187,15 +190,15 @@ const GradualBlur: React.FC<PropsWithChildren<GradualBlurProps>> = props => {
 
       let blurValue: number
       if (config.exponential) {
-        blurValue = Math.pow(2, progress * 4) * 0.0625 * currentStrength
+        blurValue = Number(math.pow(2, progress * 4)) * 0.0625 * currentStrength
       } else {
         blurValue = 0.0625 * (progress * config.divCount + 1) * currentStrength
       }
 
-      const p1 = Math.round((increment * i - increment) * 10) / 10
-      const p2 = Math.round(increment * i * 10) / 10
-      const p3 = Math.round((increment * i + increment) * 10) / 10
-      const p4 = Math.round((increment * i + increment * 2) * 10) / 10
+      const p1 = math.round((increment * i - increment) * 10) / 10
+      const p2 = math.round(increment * i * 10) / 10
+      const p3 = math.round((increment * i + increment) * 10) / 10
+      const p4 = math.round((increment * i + increment * 2) * 10) / 10
 
       let gradient = `transparent ${p1}%, black ${p2}%`
       if (p3 <= 100) gradient += `, black ${p3}%`
@@ -289,3 +292,17 @@ GradualBlurMemo.displayName = 'GradualBlur'
 ;(GradualBlurMemo as any).PRESETS = PRESETS
 ;(GradualBlurMemo as any).CURVE_FUNCTIONS = CURVE_FUNCTIONS
 export default GradualBlurMemo
+
+const injectStyles = () => {
+  if (typeof document === 'undefined') return
+  const styleId = 'gradual-blur-styles'
+  if (document.getElementById(styleId)) return
+  const styleElement = document.createElement('style')
+  styleElement.id = styleId
+  styleElement.textContent = `.gradual-blur{pointer-events:none;transition:opacity 0.3s ease-out}.gradual-blur-inner{pointer-events:none}`
+  document.head.appendChild(styleElement)
+}
+
+if (typeof document !== 'undefined') {
+  injectStyles()
+}

@@ -129,24 +129,25 @@ body {
   box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
 }
 
-/* Floating animation */
+/* Optimized animations for better performance */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  50% { transform: translateY(-10px); }
 }
 
 .float {
-  animation: float 6s ease-in-out infinite;
+  animation: float 8s ease-in-out infinite;
+  will-change: transform;
 }
 
-/* Pulse animation */
+/* Reduced pulse animation */
 @keyframes pulse {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  50% { opacity: 0.8; }
 }
 
 .pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 @layer utilities {

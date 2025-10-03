@@ -72,30 +72,6 @@ export default function Footer() {
             </div>
           </FadeContent>
 
-          {/* Support */}
-          <FadeContent delay={1000}>
-            <div>
-              <h4 className="text-xl font-bold text-white mb-6">Support</h4>
-              <ul className="space-y-4">
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center group">
-                  <span className="w-2 h-2 bg-purple-500 rounded-full mr-3 group-hover:scale-150 transition-transform duration-300"></span>
-                  Help Center
-                </a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center group">
-                  <span className="w-2 h-2 bg-purple-500 rounded-full mr-3 group-hover:scale-150 transition-transform duration-300"></span>
-                  Contact Us
-                </a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center group">
-                  <span className="w-2 h-2 bg-purple-500 rounded-full mr-3 group-hover:scale-150 transition-transform duration-300"></span>
-                  Status
-                </a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center group">
-                  <span className="w-2 h-2 bg-purple-500 rounded-full mr-3 group-hover:scale-150 transition-transform duration-300"></span>
-                  Community
-                </a></li>
-              </ul>
-            </div>
-          </FadeContent>
         </div>
 
         <FadeContent delay={1200}>
